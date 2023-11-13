@@ -2,9 +2,8 @@
 FROM prefecthq/prefect:2.14-python3.11
 
 # Set environment variables
-# test
-ENV PREFECT_API_URL='{YOUR_RESTACK_APP_URL}/api'
-ENV PREFECT_API_KEY='{PREFECT_API_KEY_HERE}'
+# ENV PREFECT_API_URL='{YOUR_RESTACK_APP_URL}/api'
+# ENV PREFECT_API_KEY='{PREFECT_API_KEY_HERE}'
 
 # Add our requirements.txt file to the image and install dependencies
 COPY requirements.txt .

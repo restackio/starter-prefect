@@ -2,7 +2,6 @@
 FROM prefecthq/prefect:2.14-python3.11
 
 # Set environment variables
-# test
 ENV PREFECT_API_URL='{YOUR_RESTACK_APP_URL}/api'
 ENV PREFECT_API_KEY='{PREFECT_API_KEY_HERE}'
 

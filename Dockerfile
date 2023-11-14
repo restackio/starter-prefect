@@ -3,7 +3,7 @@ FROM prefecthq/prefect:2.14-python3.11
 
 # Set environment variables
 # test
-ENV PREFECT_API_URL='https://prasjs.clao8l9.restack.it/api'
+ENV PREFECT_API_URL='https://pr7gza.clao8l9.restack.it/api'
 ENV PREFECT_API_KEY='tnouhn3ebn'
 
 # Add our requirements.txt file to the image and install dependencies

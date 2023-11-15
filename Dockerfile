@@ -4,7 +4,7 @@ FROM prefecthq/prefect:2.14-python3.11
 RUN mkdir -p flows
 # Set environment variables
 # test
-ENV PREFECT_API_URL='https://prabng.clao8l9.restack.it/api'
+# ENV PREFECT_API_URL='https://prabng.clao8l9.restack.it/api'
 # ENV PREFECT_API_KEY='tnouhn3ebn'
 
 # Add our requirements.txt file to the image and install dependencies
@@ -16,4 +16,4 @@ COPY flows /opt/prefect/flows
 # COPY --chown=79cebfcf-6a1f-483c-bf98-1235a23c9b5d:root flows/ /opt/prefect/flows
 
 # Run our flow script when the container starts
-CMD ["python", "flows/example-flow.py"]
+CMD ["python", "/opt/prefect/flows/example-flow.py"]

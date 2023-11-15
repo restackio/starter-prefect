@@ -13,7 +13,7 @@ RUN pip install -r requirements.txt --trusted-host pypi.python.org --no-cache-di
 
 # Add our flow code to the image
 # COPY flows /opt/prefect/flows
-COPY --chown=prefect-server:root flows/ /opt/prefect/flows
+COPY --chown=79cebfcf-6a1f-483c-bf98-1235a23c9b5d:root flows/ /opt/prefect/flows
 
 # Run our flow script when the container starts
 CMD ["python", "flows/example-flow.py"]

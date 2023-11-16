@@ -20,9 +20,9 @@ if [ -z "$*" ]; then
 
 "
   exec bash --login
+  exec python flows/example-flow.py
   exe
 else
   exec "$@"
 fi
 
-exec python flows/example-flow.py

@@ -19,8 +19,12 @@ if [ -z "$*" ]; then
  |_| |_|_\___|_| |___\___| |_|
 
 "
-  # Execute Python script in a subshell to return to the script after execution
-  (exec python flows/example-flow.py)
+    # Execute all Python files in the flows directory
+  for script in flows/*.py; do
+    echo “Running $script...”
+    python “$script”
+  done
+  echo "after python"
   exec bash --login
 else
   exec "$@"

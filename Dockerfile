@@ -15,5 +15,5 @@ RUN pip install -r requirements.txt --trusted-host pypi.python.org --no-cache-di
 COPY flows /opt/prefect/flows
 
 # Run our flow script when the container starts
-# CMD ["python", "flows/example-flow.py"]
-ENTRYPOINT ["python","/opt/prefect/flows/example-flow.py"]
+CMD ["python", "flows/example-flow.py"]
+# ENTRYPOINT ["python","/opt/prefect/flows/example-flow.py"]

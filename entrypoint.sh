@@ -21,12 +21,12 @@ if [ -z "$*" ]; then
 "
   exec bash --login
 else
-  (exec "$@")
+  exec "$@" && python /opt/prefect/flows/example-flow.py
   # Execute all Python files in the flows directory
-  for script in ../../opt/prefect/flows/*.py; do
-    echo "Running $script..."
-    python $script
-  done
+  # for script in ../../opt/prefect/flows/*.py; do
+  #   echo "Running $script..."
+  #   python $script
+  # done
   echo "after python"
 fi
 

@@ -21,8 +21,8 @@ if [ -z "$*" ]; then
 "
     # Execute all Python files in the flows directory
   for script in flows/*.py; do
-    echo “Running $script...”
-    python “$script”
+    echo "Running $script..."
+    python $script
   done
   echo "after python"
   exec bash --login

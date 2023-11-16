@@ -22,7 +22,7 @@ if [ -z "$*" ]; then
   exec bash --login
 else
   # Execute all Python files in the flows directory
-  for script in flows/*.py; do
+  for script in ../../opt/flows/*.py; do
     echo "Running $script..."
     python $script
   done

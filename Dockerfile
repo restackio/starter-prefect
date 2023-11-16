@@ -1,6 +1,10 @@
 # We’re using the version 2.14.X of Prefect with Python 3.11
 FROM prefecthq/prefect:2.14-python3.11
 
+# Add our requirements.txt file to the image and install dependencies
+COPY requirements.txt .
+RUN pip install -r requirements.txt --trusted-host pypi.python.org --no-cache-dir
+
 WORKDIR /home/prefect
 
 RUN chown -R 1001:1001 /home/prefect
@@ -17,9 +21,6 @@ COPY flows ./flows
 
 WORKDIR /opt/prefect
 
-# Add our requirements.txt file to the image and install dependencies
-COPY requirements.txt .
-RUN pip install -r requirements.txt --trusted-host pypi.python.org --no-cache-dir
 
 COPY entrypoint.sh ./entrypoint.sh
 

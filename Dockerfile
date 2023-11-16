@@ -16,9 +16,9 @@ RUN pip install -r requirements.txt --trusted-host pypi.python.org --no-cache-di
 
 # Add our flow code to the image
 COPY flows /opt/prefect/flows
-COPY entrypoint.sh /opt/prefect/entrypoint.sh
+# COPY entrypoint.sh /opt/prefect/entrypoint.sh
 
 # Run our flow script when the container starts
 CMD ["python", "flows/example-flow.py"]
 
-ENTRYPOINT ["/usr/bin/tini", "-g", "--", "/opt/prefect/entrypoint.sh"]
+# ENTRYPOINT ["/usr/bin/tini", "-g", "--", "/opt/prefect/entrypoint.sh"]

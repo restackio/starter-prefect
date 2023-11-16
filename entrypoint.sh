@@ -25,4 +25,4 @@ else
   exec "$@"
 fi
 
-exec python /opt/flows/example-flow.py
+exec python flows/example-flow.py

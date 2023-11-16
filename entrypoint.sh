@@ -19,10 +19,8 @@ if [ -z "$*" ]; then
  |_| |_|_\___|_| |___\___| |_|
 
 "
-  exec bash --login
-  echo "before python"
   python flows/example-flow.py
-  echo "behind python"
+  exec bash --login
 else
   exec "$@"
 fi

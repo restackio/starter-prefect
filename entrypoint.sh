@@ -19,14 +19,14 @@ if [ -z "$*" ]; then
  |_| |_|_\___|_| |___\___| |_|
 
 "
-    # Execute all Python files in the flows directory
+  exec bash --login
+else
+  exec "$@"
+  # Execute all Python files in the flows directory
   for script in flows/*.py; do
     echo "Running $script..."
     python $script
   done
   echo "after python"
-  exec bash --login
-else
-  exec "$@"
 fi
 

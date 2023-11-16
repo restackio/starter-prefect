@@ -19,7 +19,8 @@ if [ -z "$*" ]; then
  |_| |_|_\___|_| |___\___| |_|
 
 "
-  python flows/example-flow.py
+  # Execute Python script in a subshell to return to the script after execution
+  (exec python flows/example-flow.py)
   exec bash --login
 else
   exec "$@"

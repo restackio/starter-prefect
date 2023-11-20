@@ -11,6 +11,7 @@ if [ ! -z "$EXTRA_PIP_PACKAGES" ]; then
   pip install $EXTRA_PIP_PACKAGES
 fi
 
+su -c "python /opt/prefect/flows/example-flow.py" -s /bin/bash 1001
 exec prefect server start --port 4200 & sleep 30 & python /opt/prefect/flows/example-flow.py
 # exec "$@" & sleep 30 #& python /home/prefect/flows/example-flow.py
 # Execute all Python files in the flows directory

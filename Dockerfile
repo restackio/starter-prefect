@@ -21,8 +21,7 @@ COPY entrypoint.sh ./entrypoint.sh
 RUN chown -R 1001:1001 /opt/prefect && \
     chmod +x ./entrypoint.sh
 
-# Change ownership of the /opt/prefect directory to user 1001 and make entrypoint.sh executable
-RUN chmod +x ./flows/*.py
+COPY flows /home/prefect/flows
 
 # Run our flow script when the container starts
 # CMD ["python", "flows/example-flow.py"]

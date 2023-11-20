@@ -11,7 +11,7 @@ if [ ! -z "$EXTRA_PIP_PACKAGES" ]; then
   pip install $EXTRA_PIP_PACKAGES
 fi
 
-cp /opt/prefect/flows ./flows
+cp /opt/prefect/flows /home/prefect/flows
 
 exec prefect server start --port 4200 & sleep 30 & python /home/prefect/flows/example-flow.py
 # exec "$@" & sleep 30 #& python /home/prefect/flows/example-flow.py

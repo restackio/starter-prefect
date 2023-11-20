@@ -7,11 +7,12 @@ RUN mkdir -p /opt/prefect/flows
 # ENV PREFECT_API_URL=‘https://prn9md.clao8l9.restack.it/api’
 # ENV PREFECT_API_KEY=‘tnouhn3ebn’
 
+COPY requirements.txt .
+RUN pip install -r requirements.txt --trusted-host pypi.python.org --no-cache-dir
+
 WORKDIR /opt/prefect
 
 # Add our requirements.txt file to the image and install dependencies
-COPY requirements.txt .
-RUN pip install -r requirements.txt --trusted-host pypi.python.org --no-cache-dir
 
 # Add our flow code and entrypoint script to the image
 COPY flows ./flows

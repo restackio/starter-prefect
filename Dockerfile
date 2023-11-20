@@ -22,5 +22,4 @@ COPY entrypoint.sh ./entrypoint.sh
 
 # Run our flow script when the container starts
 # CMD ["python", "flows/example-flow.py"]
-
 # ENTRYPOINT ["/usr/bin/tini", "-g", "--", "/opt/prefect/entrypoint.sh"]

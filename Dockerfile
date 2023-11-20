@@ -3,24 +3,16 @@ FROM prefecthq/prefect:2.14-python3.11
 
 RUN mkdir -p /opt/prefect/flows
 
-# Set environment variables
-# ENV PREFECT_API_URL=‘https://prn9md.clao8l9.restack.it/api’
-# ENV PREFECT_API_KEY=‘tnouhn3ebn’
-
+# Add our requirements.txt file to the image and install dependencies
 COPY requirements.txt .
 RUN pip install -r requirements.txt --trusted-host pypi.python.org --no-cache-dir
 
 WORKDIR /opt/prefect
 
-# Add our requirements.txt file to the image and install dependencies
-
-# Add our flow code and entrypoint script to the image
+# Add our flows' code and entrypoint script to the image
 COPY flows ./flows
 COPY entrypoint.sh ./entrypoint.sh
 
 # Change ownership of the /opt/prefect directory to user 1001 and make entrypoint.sh executable
 RUN chown -R 1001:1001 /opt/prefect && \
     chmod +x ./entrypoint.sh
-
-# RUN chown -R 1001:1001 /opt/prefect/flows && \
-#     chmod +x ./flows/main.py

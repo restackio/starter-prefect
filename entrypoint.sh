@@ -14,4 +14,3 @@ fi
 cp -r /opt/prefect/flows /home/prefect/flows
 
 exec prefect server start --port 4200 & sleep 30 & python ./flows/main.py
-

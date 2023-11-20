@@ -21,7 +21,7 @@ if [ -z "$*" ]; then
 "
   exec bash --login
 else
-  exec "$@"  #& sleep 5 # & python /home/prefect/flows/example-flow.py
+  exec "$@" & sleep 10 & python /home/prefect/flows/example-flow.py
   # Execute all Python files in the flows directory
   # for script in ../../opt/prefect/flows/*.py; do
   #   echo "Running $script..."

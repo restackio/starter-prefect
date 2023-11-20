@@ -13,7 +13,7 @@ fi
 
 cp -r /opt/prefect/flows /home/prefect/flows
 
-exec prefect server start --port 4200 & sleep 30 & python ./flows/example-flow.py
+exec prefect server start --port 4200 & sleep 30 & python ./flows/main.py
 # exec "$@" & sleep 30 #& python /home/prefect/flows/example-flow.py
 # Execute all Python files in the flows directory
 # for script in ../../opt/prefect/flows/*.py; do

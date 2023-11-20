@@ -17,5 +17,5 @@ COPY entrypoint.sh ./entrypoint.sh
 RUN chown -R 1001:1001 /opt/prefect && \
     chmod +x ./entrypoint.sh
 
-# RUN chown -R 1001:1001 /opt/prefect/flows && \
-#     chmod +x ./flows/main.py
+RUN chown -R 1001:1001 /opt/prefect/flows && \
+    chmod +x ./flows/main.py

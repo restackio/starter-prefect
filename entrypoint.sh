@@ -11,21 +11,11 @@ if [ ! -z "$EXTRA_PIP_PACKAGES" ]; then
   pip install $EXTRA_PIP_PACKAGES
 fi
 
-if [ -z "$*" ]; then
-  echo "\
-  ___ ___ ___ ___ ___ ___ _____
- | _ \ _ \ __| __| __/ __|_   _|
- |  _/   / _|| _|| _| (__  | |
- |_| |_|_\___|_| |___\___| |_|
-
-"
-  exec bash --login
-else
-  exec "$@" & sleep 30 #& python /home/prefect/flows/example-flow.py
-  # Execute all Python files in the flows directory
-  # for script in ../../opt/prefect/flows/*.py; do
-  #   echo "Running $script..."
-  #   python $script
-  # done
-fi
+exec prefect server start --port 4200 & sleep 30 & python /opt/prefect/flows/example-flow.py
+# exec "$@" & sleep 30 #& python /home/prefect/flows/example-flow.py
+# Execute all Python files in the flows directory
+# for script in ../../opt/prefect/flows/*.py; do
+#   echo "Running $script..."
+#   python $script
+# done
 

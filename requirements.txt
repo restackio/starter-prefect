@@ -1,2 +1,4 @@
 prefect>=2.14.0
-httpx
+dbt-core
+dbt-duckdb
+prefect-dbt-flow

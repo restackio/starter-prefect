@@ -21,8 +21,8 @@ RUN python main.py && python dbt_flow.py
 
 # Add our flows' code and entrypoint script to the image
 #COPY flows ./flows
-#COPY entrypoint.sh ./entrypoint.sh
+COPY entrypoint.sh ./entrypoint.sh
 
 # Change ownership of the /opt/prefect directory to user 1001 and make entrypoint.sh executable
-#RUN chown -R 1001:1001 /opt/prefect && \
-#    chmod +x ./entrypoint.sh
+RUN chown -R 1001:1001 /opt/prefect && \
+    chmod +x ./entrypoint.sh

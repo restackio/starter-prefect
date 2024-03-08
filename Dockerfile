@@ -15,6 +15,8 @@ COPY dbt_project ./dbt_project
 
 RUN cd /opt/prefect/dbt_project && dbt deps
 
+RUN python main.py && python dbt_flow.py
+
 # TODO: Should we keep this entrypoint file?
 
 # Add our flows' code and entrypoint script to the image

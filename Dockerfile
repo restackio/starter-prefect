@@ -15,7 +15,7 @@ COPY dbt_project ./dbt_project
 
 RUN cd /opt/prefect/dbt_project && dbt deps
 
-RUN cd..
+RUN cd /opt/prefect/
 
 #RUN python ./flows/main.py && python ./flows/dbt_flow.py
 

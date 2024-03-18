@@ -1,0 +1,1 @@
+import{d as o,c as r,k as e,l as c,o as n,q as a,u as t,E as u,G as _}from"./index-HS7BEnlJ.js";import{u as f}from"./usePageTitle--i4XSTNx.js";const h=o({__name:"Artifacts",setup(l){return f("Artifacts"),(p,i)=>{const s=c("p-layout-default");return n(),r(s,{class:"artifacts"},{header:e(()=>[a(t(u))]),default:e(()=>[a(t(_))]),_:1})}}});export{h as default};

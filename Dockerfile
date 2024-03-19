@@ -9,9 +9,9 @@ RUN pip install -r requirements.txt --trusted-host pypi.python.org --no-cache-di
 
 WORKDIR /opt/prefect
 
-COPY flows ./flows
+COPY flows flows
 
-COPY dbt_project ./dbt_project
+COPY dbt_project dbt_project
 
 RUN cd /opt/prefect/dbt_project && dbt deps
 

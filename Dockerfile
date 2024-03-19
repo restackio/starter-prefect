@@ -1,5 +1,5 @@
 # We’re using the version 2.14.X of Prefect with Python 3.11
-FROM prefecthq/prefect:2.14-python3.11
+FROM prefecthq/prefect:2.16-python3.10
 
 RUN mkdir -p /opt/prefect/flows
 
@@ -9,10 +9,8 @@ RUN pip install -r requirements.txt --trusted-host pypi.python.org --no-cache-di
 
 WORKDIR /opt/prefect
 
-# Add our flows' code and entrypoint script to the image
-COPY flows ./flows
-COPY entrypoint.sh ./entrypoint.sh
+COPY flows /opt/prefect/flows/
 
-# Change ownership of the /opt/prefect directory to user 1001 and make entrypoint.sh executable
-RUN chown -R 1001:1001 /opt/prefect && \
-    chmod +x ./entrypoint.sh
+RUN mkdir /home/prefect/
+
+RUN cp -R ./* /home/prefect/

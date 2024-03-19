@@ -4,7 +4,7 @@ from prefect_dbt_flow import dbt_flow
 from prefect_dbt_flow.dbt import DbtDagOptions, DbtProfile, DbtProject
 from prefect.task_runners import SequentialTaskRunner
 
-DBT_PATH = Path().absolute().parent / "/dbt_project"
+DBT_PATH = Path().absolute().parent / "dbt_project"
 
 my_flow = dbt_flow(
     project=DbtProject(
@@ -16,7 +16,7 @@ my_flow = dbt_flow(
         target="dev",
         overrides={
             "type": "duckdb",
-            "path": DBT_PATH / "jaffle_shop.duckdb",
+            "path": str(DBT_PATH / "jaffle_shop.duckdb"),
         },
     ),
     dag_options=DbtDagOptions(install_deps=False),

@@ -9,20 +9,26 @@ RUN pip install -r requirements.txt --trusted-host pypi.python.org --no-cache-di
 
 WORKDIR /opt/prefect
 
-COPY flows flows/
+COPY --chown=prefect:root dbt_project /opt/prefect/dbt_project/
+COPY --chown=prefect:root flows /opt/prefect/flows/
 
-COPY dbt_project dbt_project/
+RUN mkdir /home/prefect/
+
+RUN cp -R ./* /home/prefect/
 
 RUN cd /opt/prefect/dbt_project && dbt deps
 
-RUN cd /opt/prefect/
+RUN cd /opt/prefect
+
 
 #RUN python ./flows/main.py && python ./flows/dbt_flow.py
 
 # TODO: Should we keep this entrypoint file?
 
 # Add our flows' code and entrypoint script to the image
-#COPY entrypoint.sh ./entrypoint.sh
+#COPY entrypoint.sh /home/prefect/entrypoint.sh
+
+#RUN chmod +x ./entrypoint.sh
 
 # Change ownership of the /opt/prefect directory to user 1001 and make entrypoint.sh executable
 #RUN chown -R 1001:1001 /opt/prefect && \

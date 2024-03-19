@@ -9,8 +9,8 @@ RUN pip install -r requirements.txt --trusted-host pypi.python.org --no-cache-di
 
 WORKDIR /opt/prefect
 
-COPY --chown=prefect:root dbt_project /opt/prefect/dbt_project/
-COPY --chown=prefect:root flows /opt/prefect/flows/
+COPY dbt_project /opt/prefect/dbt_project/
+COPY flows /opt/prefect/flows/
 
 RUN mkdir /home/prefect/
 

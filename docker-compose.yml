@@ -13,7 +13,6 @@ services:
       - 5432
     volumes: 
       - db:/var/lib/postgresql/data
-    profiles: ["server"]
   
   ### MinIO for flow storage
   minio:
@@ -24,7 +23,6 @@ services:
     ports:
       - 9000:9000
       - 9001:9001
-    profiles: ["minio"]
 
   ### Prefect Server API and UI
   server:
@@ -49,7 +47,6 @@ services:
       - 4200:4200
     depends_on:
       - database
-    profiles: ["server"]
 
   ## Prefect Agent
   agent:
@@ -60,7 +57,6 @@ services:
       - PREFECT_API_URL=http://server:4200/api
 #       Use PREFECT_API_KEY if connecting the agent to Prefect Cloud
 #     - PREFECT_API_KEY=YOUR_API_KEY
-    profiles: ["agent"]
 
   ### Prefect CLI
   cli:
@@ -74,7 +70,6 @@ services:
       - PREFECT_API_URL=http://server:4200/api
 #       Use PREFECT_API_KEY to use the CLI to interact with Prefect Cloud
 #     - PREFECT_API_KEY=YOUR_API_KEY
-    profiles: ["cli"]
       
 volumes:
   prefect:

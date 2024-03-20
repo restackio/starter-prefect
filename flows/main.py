@@ -1,17 +1,19 @@
-import httpx
-from prefect import flow
+from prefect import flow, task
 
+@task
+def say_hello(name):
+    print(f"hello {name}")
 
-@flow(log_prints=True)
-def get_repo_info(repo_name: str = "PrefectHQ/prefect"):
-    url = f"https://api.github.com/repos/{repo_name}"
-    response = httpx.get(url)
-    response.raise_for_status()
-    repo = response.json()
-    print(f"{repo_name} repository statistics 🤓:")
-    print(f"Stars 🌠 : {repo['stargazers_count']}")
-    print(f"Forks 🍴 : {repo['forks_count']}")
+@task
+def say_goodbye(name):
+    print(f"goodbye {name}")
 
+@flow(name="test flow")
+def greetings(names=["arthur", "trillian", "ford", "marvin"]):
+    for name in names:
+        say_hello(name)
+        say_goodbye(name)
 
 if __name__ == "__main__":
-    get_repo_info.serve(name="example-flow")
+    greetings(["arthur", "trillian", "ford", "marvin"])
+    
